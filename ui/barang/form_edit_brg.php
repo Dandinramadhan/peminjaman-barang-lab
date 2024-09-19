@@ -37,54 +37,56 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Edit Barang</title>
+    <link rel="stylesheet" href="../../style2.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="container mt-5">
     <header>
-        <h2>Edit Data Barang</h2>
+        <h2 class="text-center mb-4">Edit Data Barang</h2>
     </header>
-    <form action="../../controller/barang/edit_brg.php" method="post">
+    
+    <form action="../../controller/barang/edit_brg.php" method="post" class="row g-3">
         <input type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($barang['id']); ?>" />
         
-        <div>
-            <label for="nama_barang">Nama Barang :</label>
-            <input type="text" name="nama_barang" id="nama_barang" value="<?php echo htmlspecialchars($barang['nama_barang']); ?>">
+        <!-- Nama Barang -->
+        <div class="col-12">
+            <label style="color: #FADFA1" for="nama_barang" class="form-label fs-4 text fw-medium ">Nama Barang :</label>
+            <input type="text" name="nama_barang" id="nama_barang" class="form-control" value="<?php echo htmlspecialchars($barang['nama_barang']); ?>" required>
         </div>
 
-        <br>
-
-        <div>
-            <label for="jumlah_pinjam">Stock Barang :</label>
-            <input type="number" name="jumlah_pinjam" id="jumlah_pinjam" value="<?php echo htmlspecialchars($barang['jumlah_pinjam']); ?>">
+        <!-- Stock Barang -->
+        <div class="col-12">
+            <label for="jumlah_pinjam" class="form-label fs-4 text fw-medium text-white">Stock Barang :</label>
+            <input type="number" name="jumlah_pinjam" id="jumlah_pinjam" class="form-control" value="<?php echo htmlspecialchars($barang['jumlah_pinjam']); ?>" required>
         </div>
 
-        <br>
-
-        <div>
-            <label for="nama_ruang">Nama Ruang:</label>
-            <select id="nama_ruang" name="ruang_id" required>
+        <!-- Nama Ruang -->
+        <div class="col-12">
+            <label for="nama_ruang" class="form-label fs-4 text fw-medium text-white">Nama Ruang:</label>
+            <select id="nama_ruang" name="ruang_id" class="form-select" required>
                 <?php
-                // Tampilkan opsi nama ruang
                 foreach ($labs as $lab) {
                     $selected = ($barang['ruang_id'] == $lab['id']) ? ' selected' : '';
                     echo "<option value=\"" . $lab['id'] . "\"" . $selected . ">" . $lab['nama_ruang'] . "</option>";
                 }
                 ?>
             </select>
-            <br>
         </div>
 
-        <br>
-
-        <div>
-            <label for="description">Deskripsi :</label>
-            <input type="text" name="description" id="description" value="<?php echo htmlspecialchars($barang['description']); ?>">
+        <!-- Deskripsi Barang -->
+        <div class="col-12">
+            <label for="description" class="form-label fs-4 text fw-medium text-white">Deskripsi :</label>
+            <input type="text" name="description" id="description" class="form-control" value="<?php echo htmlspecialchars($barang['description']); ?>" required>
         </div>
 
-        <br>
-
-        <div>
-            <input type="submit" value="Simpan" name="submit">
+        <!-- Tombol Simpan -->
+        <div class="col-12 text-center mt-3">
+            <input type="submit" value="Simpan" name="submit" class="btn btn-primary">
         </div>
     </form>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
