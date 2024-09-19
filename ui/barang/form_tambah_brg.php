@@ -19,55 +19,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Tambah Barang</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="container mt-5">
     <header>
-        <h2>Form Tambah Barang Baru</h2>
+        <h2 class="text-center mb-4">Tambah Barang Baru</h2>
     </header>
-    <form action="../../controller/barang/tambah_brg.php" method="POST">
-        <div>
-            <label for="nama_barang">Nama Barang :</label>
-            <input type="text" name="nama_barang" id="nama_barang" required>
+
+    <form action="../../controller/barang/tambah_brg.php" method="POST" class="row g-3">
+        <!-- Nama Barang -->
+        <div class="col-12">
+            <label for="nama_barang" class="form-label fs-5 text">Nama Barang :</label>
+            <input type="text" name="nama_barang" id="nama_barang" class="form-control" required>
         </div>
 
-        <br>
-
-        <div>
-            <label for="jumlah_pinjam">Stock Barang :</label>
-            <input type="number" name="jumlah_pinjam" id="jumlah_pinjam" required>
+        <!-- Stock Barang -->
+        <div class="col-12">
+            <label for="jumlah_pinjam" class="form-label fs-5 text">Stock Barang :</label>
+            <input type="number" name="jumlah_pinjam" id="jumlah_pinjam" class="form-control" required>
         </div>
 
-        <br>
-
-        <!-- <div>
-            <label for="ruang_id">Lokasi Ruangan :</label>
-            <input type="number" name="ruang_id" id="ruang_id" required>
-        </div> -->
-
-        <div>
-        <label for="nama_ruang">Nama Ruang:</label>
-            <select id="nama_ruang" name="nama_ruang" required>
+        <!-- Nama Ruang -->
+        <div class="col-12">
+            <label for="nama_ruang" class="form-label fs-5 text">Nama Ruang:</label>
+            <select id="nama_ruang" name="nama_ruang" class="form-select" required>
                 <?php
-                // Tampilkan opsi nama ruang
                 foreach ($labs as $lab) {
                     echo "<option value=\"" . $lab['id'] . "\">" . $lab['nama_ruang'] . "</option>";
                 }
                 ?>
             </select>
-            <br>
         </div>
 
-        <br>
-
-        <div>
-            <label for="description">Description :</label>
-            <input type="Text" name="description" id="description" required>
-        </div>
-        <br>
-        <div>
-            <input type="submit" value="submit" name="submit">
+        <!-- Deskripsi Barang -->
+        <div class="col-12">
+            <label for="description" class="form-label fs-5 text">Deskripsi :</label>
+            <input type="text" name="description" id="description" class="form-control" required>
         </div>
 
+        <!-- Tombol Submit -->
+        <div class="col-12 text-center mt-3">
+            <input type="submit" value="Submit" name="submit" class="btn btn-primary">
+        </div>
     </form>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
